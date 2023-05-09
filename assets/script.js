@@ -1,6 +1,7 @@
 //how to get the text read
 responsiveVoice.speak(document.getElementById('insert-id-here').textContent);
 
+
 //cancel the speech *add to a btn
 responsiveVoice.cancel();
 
@@ -30,3 +31,8 @@ try {
 } catch (error) {
 	console.error(error);
 }
+
+//copy function
+btnPlaceholder.addEventListener("click", () => {
+	navigator.clipboard.writeText(output.value)
+  });
