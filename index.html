@@ -14,22 +14,29 @@
     </header>
 
     <main id="main-container">
-        <textarea name="textInput" id="textInput" placeholder= "#" cols="30" rows="10" required="required"></textarea>
+        <textarea name="textInput" id="textInput" placeholder="#" cols="30" rows="10" required="required"></textarea>
 
         <section id="buttons">
-            <button id="play">Play sound</button>
-            <button id="saveQuote">Save Quote</button>
+            <button class="btns" id="play">Play sound</button>
+
             <select name="dropDown" id="dropDown"> 
-                <option id="#option1">#Option 1</option> 
-                <option id="#option2">#Option 2</option>
-                <option id="#option3">#Option 3</option> 
+                <option class="optionItem" id="option1">US English Female</option> 
+                <option class="optionItem" id="option2">US English Male</option>
+                <option class="optionItem" id="option3">UK English Female</option> 
+                <option class="optionItem" id="option4">UK English Male</option> 
+                <option class="optionItem" id="option5">French Female</option> 
+                <option class="optionItem" id="option6">Russian Male</option> 
+                <option class="optionItem" id="option7">Spanish Female</option> 
             </select>
+
+            <button class="btns" id="saveQuote">Save Quote</button>
+            
         </section>
 
         <section id="savedQuotes-container">
             <ul id="savedQuotes">
             </ul>
-            <button id="shareQuote">Share quote</button>
+            <button class="btns" id="shareQuote">Share quote</button>
         </section>
 
 
