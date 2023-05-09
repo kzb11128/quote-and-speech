@@ -4,14 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/reset.css">
     <link rel="stylesheet" href="./assets/style.css">
     <title>Text to speech</title>
 </head>
 <body>
-    
+    <header>
+        <h1 id="title">Quote & Speech</h1>
+    </header>
 
+    <main id="main-container">
+        <textarea name="textInput" id="textInput" placeholder= "#" cols="30" rows="10" required="required"></textarea>
+
+        <section id="buttons">
+            <button id="play">Play sound</button>
+            <button id="saveQuote">Save Quote</button>
+            <select name="dropDown" id="dropDown"> 
+                <option id="#option1">#Option 1</option> 
+                <option id="#option2">#Option 2</option>
+                <option id="#option3">#Option 3</option> 
+            </select>
+        </section>
+
+        <section id="savedQuotes-container">
+            <ul id="savedQuotes">
+            </ul>
+            <button id="shareQuote">Share quote</button>
+        </section>
+
+
+    </main>
+
+
+<!-- Responsive voice API source -->
 <script src="https://code.responsivevoice.org/responsivevoice.js?key=sOzOcWr6"></script>
+
+<!-- Jquery API source -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<!-- Tailwind API source -->
+<!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+<!-- JavaScript source -->
 <script src="./assets/script.js"></script>
+<script src="./assets/quote.js"></script>
+<script src="./assets/speech.js"></script>
 </body>
 
 </html>
