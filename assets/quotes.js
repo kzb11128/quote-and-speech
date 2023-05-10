@@ -1,22 +1,28 @@
-//quote of the day
-const url = 'https://quotel-quotes.p.rapidapi.com/quotes/random';
-const options = {
-	method: 'POST',
-	headers: {
-		'content-type': 'application/json',
-		'X-RapidAPI-Key': '48f5798bd1mshc87c9f81137df26p13b2e8jsn92f7d104c439',
-		'X-RapidAPI-Host': 'quotel-quotes.p.rapidapi.com'
-	},
-	body: {}
-};
+// Selects text area element
+const textAreaEl = document.getElementById('textInput');
 
-try {
-	const response = await fetch(url, options);
-	const result = await response.text();
-	console.log(result);
-} catch (error) {
-	console.error(error);
+// api key
+let apiKey = 'uKUGstC3MMp19buzHc8PrltP0BIiwoF4hVw0beNh';
+
+// uses data from api call
+function useData(data){
+ console.log(data);
+ let text = data[0].quote;
+ textAreaEl.placeholder = text;
 }
+// gets data from api
+$.ajax({
+   method: 'GET',
+   url: 'https://api.api-ninjas.com/v1/quotes?category',
+   headers: { 'X-Api-Key': apiKey},
+   contentType: 'application/json',
+   success: function(result) {
+   useData(result)
+   },
+   error: function ajaxError(jqXHR) {
+       console.error('Error: ', jqXHR.responseText);
+   }
+});
 
 //copy function
 btnPlaceholder.addEventListener("click", () => {
