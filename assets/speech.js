@@ -54,5 +54,3 @@ playBtn.addEventListener('click', function() {
 
 
 
-
-
