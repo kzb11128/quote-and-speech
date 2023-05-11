@@ -41,5 +41,5 @@ The Text-to-Speech App is deployed and accessible at [link to deployed applicati
 
 ## License
 
-[Include the license information for your project here.]
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [Open Source Initiative Link](https://opensource.org/licenses/MIT)
 
