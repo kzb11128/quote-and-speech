@@ -1,36 +1,44 @@
-// Selects text area element
-const textAreaEl = document.getElementById('textInput');
 
-// api key
-let apiKey = 'uKUGstC3MMp19buzHc8PrltP0BIiwoF4hVw0beNh';
 
-// uses data from api call
-function useData(data){
- console.log(data);
- let text = data[0].quote;
- textAreaEl.placeholder = text;
+// GETS QUOTE FROM API AND PLACES IT IN THE TEXT AREA
+
+function getQuote(){
+    // Selects text area element
+  const textAreaEl = document.getElementById('textInput');
+
+  // api key
+  let apiKey = 'uKUGstC3MMp19buzHc8PrltP0BIiwoF4hVw0beNh';
+  // uses data from api call
+  function useData(data){
+    let text = data[0].quote + '\n \n - ' + data[0].author;
+    textAreaEl.placeholder = text;
+  }
+ // gets data from api
+  $.ajax({
+    method: 'GET',
+    url: 'https://api.api-ninjas.com/v1/quotes?category',
+    headers: { 'X-Api-Key': apiKey},
+    contentType: 'application/json',
+    success: function(result) {
+    useData(result);
+    },
+    error: function ajaxError(jqXHR) {
+        console.error('Error: ', jqXHR.responseText);
+    }
+ });
 }
-// gets data from api
-$.ajax({
-   method: 'GET',
-   url: 'https://api.api-ninjas.com/v1/quotes?category',
-   headers: { 'X-Api-Key': apiKey},
-   contentType: 'application/json',
-   success: function(result) {
-   useData(result)
-   },
-   error: function ajaxError(jqXHR) {
-       console.error('Error: ', jqXHR.responseText);
-   }
-});
+// RUNS GET QUOTE FUNCTION
+getQuote();
+
+
+
+
+
 
 //copy function
 btnPlaceholder.addEventListener("click", () => {
 	navigator.clipboard.writeText(placeHolder.value)
   });
-
-
-
 
 
 // Save quote functionality
