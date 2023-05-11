@@ -13,8 +13,8 @@ var textInput = document.querySelector('#textInput');
 var buttons = document.querySelector('#buttons');
 var dropDown = document.querySelector('#dropDown');
 var playBtn = document.querySelector('#play');
-var userinput = document.querySelector('#userInput')
-var stopBtn = document.querySelector('#stopSpeech')
+var userinput = document.querySelector('#userInput');
+var stopBtn = document.querySelector('#stopSpeech');
 
 //playBtn.addEventListener('click', speeching());
 
@@ -46,13 +46,13 @@ userinput.addEventListener('click', function(event) {
     alert(dropDown.selectedOptions[dropDown.selectedIndex].value);
 })
 
-playBtn.addEventListener('click', speeching);
 
-function speeching() {
-
+playBtn.addEventListener('click', function() {
     responsiveVoice.speak(textInput.value, voice);
+});
 
-}
+
+
 
 
 

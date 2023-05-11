@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="./assets/reset.css">
     <link rel="stylesheet" href="./assets/style.css"> -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./assets/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
 
    </head>
@@ -18,8 +25,11 @@
     <main id="main-container">
         <textarea name="textInput" id="textInput" placeholder= "#" cols="30" rows="10" required="required" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
          <section id="buttons" >
-            <button id="play">Play sound</button>
-            <button id="saveQuote">Save Quote</button>
+            
+            <button class='btns' id="play"><i class="fas fa-play"></i></button>
+
+            <button class="btns" id="stopSpeech"><i class="fas fa-stop"></i></button>
+
             <select name="dropDown" id="dropDown"> 
                 <option class="optionItem" value="US English Female">US English Female</option> 
                 <option class="optionItem" value="US English Male">US English Male</option>
@@ -30,15 +40,15 @@
                 <option class="optionItem" value="Spanish Female">Spanish Female</option> 
             </select>
             <input type="submit" value="Submit" id="userInput">
-            <button class="btns" id="stopSpeech">Stop</button>
-            <button class="btns" id="saveQuote">Save Quote</button>
+
+            <button class="btns" id="saveQuote">Save Quote <i class="fas fa-floppy-disk"></i></button>
             
         </section>
 
         <section id="savedQuotes-container">
             <ul id="savedQuotes">
             </ul>
-            <button class="btns" id="shareQuote">Share quote</button>
+            <button class="btns" id="shareQuote">Share Quote <i class="fas fa-solid fa-share"></i></button>
         </section>
     </main>
 
