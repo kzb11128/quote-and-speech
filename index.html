@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- <link rel="stylesheet" href="./assets/reset.css">
     <link rel="stylesheet" href="./assets/style.css"> -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./assets/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="flex flex-col h-screen my-auto items-center bg-gray-100">
@@ -16,8 +23,11 @@
         <textarea name="textInput" id="textInput" placeholder="#" cols="30" rows="10" required="required" class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"></textarea>
         <section id="buttons">
             <button id="play" class="btns bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
-                Play sound
+                <i class="fas fa-play"></i>
             </button>
+
+            <button class="btns bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded" id="stopSpeech"><i class="fas fa-stop"></i></button>
+
             <select name="dropDown" id="dropDown" class="bg-gray-300 py-2 px-4 rounded">
                 <option class="optionItem" value="US English Female">US English Female</option>
                 <option class="optionItem" value="US English Male">US English Male</option>
@@ -28,13 +38,13 @@
                 <option class="optionItem" value="Spanish Female">Spanish Female</option>
             </select>
             <input type="submit" value="Submit" id="userInput" class="btns bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
-            <button class="btns bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded" id="stopSpeech">Stop</button>
-            <button class="btns bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded" id="saveQuote">Save Quote</button>
+    
+            <button class="btns bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded" id="saveQuote">Save Quote <i class="fas fa-floppy-disk"></i></button>
         </section>
         <section id="savedQuotes-container">
             <ul id="savedQuotes" class="bg-white border border-gray-300 rounded p-4">
             </ul>
-            <button class="btns bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded" id="shareQuote">Share quote</button>
+            <button class="btns bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded" id="shareQuote">Share quote <i class="fas fa-share-from-square"></i></button>
         </section>
     </main>
 
