@@ -15,20 +15,23 @@
     <link rel="stylesheet" href="./assets/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="flex flex-col h-screen my-auto items-center bg-gray-100">
+<body class="flex flex-col h-screen my-auto items-center bg-gradient-to-b from-[#3AAFA9] to-[#2a8a85]">
     <header>
-        <h1 id="title" class="text-4xl font-bold">Quote & Speech</h1>
+        <h1 id="title" class="text-4xl font-bold">
+            Quote <span class="text-white">&</span> Speech
+          </h1>
+          
     </header>
     <main id="main-container">
-        <textarea name="textInput" id="textInput" placeholder="#" cols="30" rows="10" required="required" class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"></textarea>
-        <section id="buttons">
-            <button id="play" class="btns bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
+        <textarea name="textInput" id="textInput" placeholder="#" cols="30" rows="10" required="required" class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 mt-6"></textarea>
+        <section id="buttons" class="flex justify-center space-x-4">
+            <button id="play" class="btns bg-gray-300 hover:bg-green-500 text-gray-800  mt-3 font-bold py-2 px-4 rounded">
                 <i class="fas fa-play"></i>
             </button>
 
-            <button class="btns bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded" id="stopSpeech"><i class="fas fa-stop"></i></button>
+            <button class="btns bg-gray-300 hover:bg-red-400 text-gray-800 font-bold mt-3 py-2 px-4 rounded" id="stopSpeech"><i class="fas fa-stop"></i></button>
 
-            <select name="dropDown" id="dropDown" class="bg-gray-300 py-2 px-4 rounded">
+            <select name="dropDown" id="dropDown" class="bg-gray-300 py-2 px-4 rounded mt-3">
                 <option class="optionItem" value="US English Female">US English Female</option>
                 <option class="optionItem" value="US English Male">US English Male</option>
                 <option class="optionItem" value="UK English Female">UK English Female</option>
@@ -37,11 +40,11 @@
                 <option class="optionItem" value="Russian Male">Russian Male</option>
                 <option class="optionItem" value="Spanish Female">Spanish Female</option>
             </select>
-            <input type="submit" value="Submit" id="userInput" class="btns bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
+            <input type="submit" value="Submit" id="userInput" class="btns bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded mt-3">
     
-            <button class="btns bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded" id="saveQuote">Save Quote <i class="fas fa-floppy-disk"></i></button>
+            <button class="btns bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded mt-3" id="saveQuote">Save Quote <i class="fas fa-floppy-disk"></i></button>
         </section>
-        <section id="savedQuotes-container">
+        <section id="savedQuotes-container" class="mt-3">
             <ul id="savedQuotes" class="bg-white border border-gray-300 rounded p-4">
             </ul>
             <!-- <button class="btns bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded" id="shareQuote">Share quote <i class="fas fa-share-from-square"></i></button> -->
