@@ -57,4 +57,22 @@ playBtn.addEventListener('click', function() {
 
 
 
+// Initialize tooltip
+tippy('#play', {
+    content: 'Click to play the sound',
+  });
 
+tippy('#stopSpeech', {
+    content: 'Stop',
+  });
+
+tippy('#dropDown', {
+    content: 'Pick a voice',
+  }); 
+  
+tippy('#userInput', {
+    content: 'Confirm the voice option',
+  });
+tippy('#saveQuote', {
+    content: 'Save the quote if you like it',
+  }); 
