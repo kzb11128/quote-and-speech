@@ -48,7 +48,11 @@ userinput.addEventListener('click', function(event) {
 
 
 playBtn.addEventListener('click', function() {
-    responsiveVoice.speak(textInput.value, voice);
+    if (textInput.value === ''){
+        responsiveVoice.speak(textInput.placeholder, voice);
+    } else {
+        responsiveVoice.speak(textInput.value, voice);
+    }
 });
 
 
