@@ -31,6 +31,9 @@ function getQuote(){
 getQuote();
 
 
+
+
+
 // Save quote functionality
 var saveQuoteBtn = document.querySelector("#saveQuote");
 var savedQuotesSection = document.querySelector("#savedQuotes-container");
@@ -49,24 +52,47 @@ saveQuoteBtn.addEventListener('click', function(){
     var quoteList = document.createElement('li');
     var copyBtn = document.createElement('button');
     var copyImg = document.createElement('i');
+    var delBtn = document.createElement('button');
+    var delImg = document.createElement('i');
 
-    copyImg.setAttribute('class', 'fas fa-copy')
-
+    copyImg.setAttribute('class', 'fas fa-copy');
     copyBtn.setAttribute('class', 'btns');
-
     copyBtn.appendChild(copyImg);
+
+    // Delete button for quotes
+    delImg.setAttribute('class', 'fas fa-trash');
+    delBtn.setAttribute('class', 'btns m-2');
+    delBtn.appendChild(delImg);
+
+
 
 // set the quote as the text content of the new li element
     quoteList.textContent = quote; 
+
+    quoteList.appendChild(copyBtn);
+    
+    quoteList.appendChild(delBtn);
+
 // append the new li element to the saved quotes list    
     savedQuotesList.appendChild(quoteList); 
+
 
     // Save the updated saved quotes list to localStorage
     localStorage.setItem('mySavedQuotes', savedQuotesList.innerHTML);
 
-    quoteList.appendChild(copyBtn);
 
     copyBtn.addEventListener("click", () => {
         navigator.clipboard.writeText(quoteList.textContent);
+
+        console.log('copied quote')
       });
+
+    delBtn.addEventListener('click', () => {
+        console.log('delete quote');
+        console.log(event.target)
+    });
 });
+
+
+
+
