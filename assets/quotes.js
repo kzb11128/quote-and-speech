@@ -10,7 +10,7 @@ function getQuote(){
   let apiKey = 'uKUGstC3MMp19buzHc8PrltP0BIiwoF4hVw0beNh';
   // uses data from api call
   function useData(data){
-    let text = data[0].quote + '\n \n - ' + data[0].author;
+    let text = data[0].quote + '\n' + '- ' + data[0].author;
     textAreaEl.placeholder = text;
   }
  // gets data from api
@@ -49,14 +49,25 @@ let counter = 0;
 // var savedQuotes = localStorage.getItem('mySavedQuotes');
 let savedQuotes = [];
 if (localStorage.getItem('mySavedQuotes')){
-
     // GETS FROM LOCAL STORAGE
-    savedQuotes = savedQuotes.concat(JSON.parse(localStorage.getItem('mySavedQuotes')));
+    savedQuotes = JSON.parse(localStorage.getItem('mySavedQuotes'));
 }
 
+if (savedQuotes !== undefined) {
+    if (savedQuotes.length === 1){
+        if (savedQuotes[0] === null){
+            savedQuotes = [];
+        }
+    }
 
-if (savedQuotes !== undefined ) {
+
     for (let i = 0; i < savedQuotes.length; i++){
+
+        if (savedQuotes[i] === null){
+            savedQuotes.splice(i, 1);
+        }
+
+
         console.log('add quote ')
         console.log(savedQuotes[i])
 
@@ -104,15 +115,25 @@ function appendQuoteList(quote){
         console.log('copied quote')
       });
 
+
+    // WHEN I HIT DELETE THE ARRAY IN LOCAL STORAGE BECOMES A NUMBER
     delBtn.addEventListener('click', (event) => {
         console.log('delete quote');
-        console.log(event.target.parentNode.parentNode.remove())
-        // remove from savedQuotes 
-        // get values from li
-        savedQuotes = [];
-        savedQuotesList.childNodes.forEach(e => savedQuotes.concat([e.textContent]));
+        event.target.parentNode.parentNode.remove()
+        
+        // temp array
+        let temp = [];
+        savedQuotesList.childNodes.forEach(e => {  
+            console.log(e)
+            console.log(e.innerText)
+
+            temp.push(e.innerText)});
+            console.log(temp)
+            
+
+        console.log(savedQuotes)
         // SETS TO LOCAL STORAGE
-        localStorage.setItem('mySavedQuotes', JSON.stringify(savedQuotes));
+        localStorage.setItem('mySavedQuotes', JSON.stringify(temp));
 
     });
 
@@ -128,7 +149,8 @@ saveQuoteBtn.addEventListener('click', function(){
     var quote = textareaEL.getAttribute('placeholder');
     appendQuoteList(quote);
     //append to local storage
-    savedQuotes = savedQuotes.concat([quote]);
+    console.log(savedQuotes)
+    savedQuotes.push(quote);
 
     // SETS TO LOCAL STORAGE
     localStorage.setItem('mySavedQuotes', JSON.stringify(savedQuotes));
