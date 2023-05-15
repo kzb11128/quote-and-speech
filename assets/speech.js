@@ -34,6 +34,8 @@ userinput.addEventListener('click', function(event) {
 
 
 playBtn.addEventListener('click', function() {
+    var voice = dropDown.value;
+    console.log(voice);
     if (textInput.value === ''){
         responsiveVoice.speak(textInput.placeholder, voice);
     } else {
