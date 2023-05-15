@@ -16,6 +16,7 @@ var playBtn = document.querySelector('#play');
 var userinput = document.querySelector('#userInput');
 var stopBtn = document.querySelector('#stopSpeech');
 
+var voice;
 //playBtn.addEventListener('click', speeching());
 
 stopBtn.addEventListener('click', function() {
@@ -27,7 +28,7 @@ stopBtn.addEventListener('click', function() {
 userinput.addEventListener('click', function(event) {
     event.preventDefault();
 
-    var voice = dropDown.value;
+    voice = dropDown.value;
     console.log(voice);
     
 })
