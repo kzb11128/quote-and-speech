@@ -40,41 +40,22 @@ var savedQuotesSection = document.querySelector("#savedQuotes-container");
 var textareaEL = document.querySelector("textarea");
 var savedQuotesList = document.querySelector("#savedQuotes")
 
+
+
 // // Retrieve the saved quotes from localStorage
-
-
-let counter = 0;
-
-
-// var savedQuotes = localStorage.getItem('mySavedQuotes');
 let savedQuotes = [];
 if (localStorage.getItem('mySavedQuotes')){
     // GETS FROM LOCAL STORAGE
     savedQuotes = JSON.parse(localStorage.getItem('mySavedQuotes'));
 }
 
+// Adds each quote in storage to page using appendQuoteList()
 if (savedQuotes !== undefined) {
-    if (savedQuotes.length === 1){
-        if (savedQuotes[0] === null){
-            savedQuotes = [];
-        }
-    }
-
-
     for (let i = 0; i < savedQuotes.length; i++){
-
-        if (savedQuotes[i] === null){
-            savedQuotes.splice(i, 1);
-        }
-
-
         console.log('add quote ')
         console.log(savedQuotes[i])
-
         appendQuoteList(savedQuotes[i]);
-        
     }
-    // savedQuotesList.innerHTML = savedQuotes;
 }
 
 
@@ -121,19 +102,16 @@ function appendQuoteList(quote){
         console.log('delete quote');
         event.target.parentNode.parentNode.remove()
         
-        // temp array
-        let temp = [];
+        // Resets array and adds each quote left on page to the array
+        let savedQuotes = [];
+
         savedQuotesList.childNodes.forEach(e => {  
-            console.log(e)
-            console.log(e.innerText)
-
-            temp.push(e.innerText)});
-            console.log(temp)
+            if (e.innerText !== undefined){
+                savedQuotes.push(e.innerText)
+            }});
             
-
-        console.log(savedQuotes)
-        // SETS TO LOCAL STORAGE
-        localStorage.setItem('mySavedQuotes', JSON.stringify(temp));
+        // SAVES TO LOCAL STORAGE
+        localStorage.setItem('mySavedQuotes', JSON.stringify(savedQuotes));
 
     });
 
@@ -144,7 +122,6 @@ function appendQuoteList(quote){
 
 
 // ADDS QUOTE TO LIST
-
 saveQuoteBtn.addEventListener('click', function(){
     var quote = textareaEL.getAttribute('placeholder');
     appendQuoteList(quote);
@@ -152,7 +129,7 @@ saveQuoteBtn.addEventListener('click', function(){
     console.log(savedQuotes)
     savedQuotes.push(quote);
 
-    // SETS TO LOCAL STORAGE
+    // SETS LOCAL STORAGE
     localStorage.setItem('mySavedQuotes', JSON.stringify(savedQuotes));
 });
 
