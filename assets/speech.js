@@ -16,34 +16,21 @@ var playBtn = document.querySelector('#play');
 var userinput = document.querySelector('#userInput');
 var stopBtn = document.querySelector('#stopSpeech');
 
+var voice;
 //playBtn.addEventListener('click', speeching());
 
 stopBtn.addEventListener('click', function() {
     responsiveVoice.cancel();
 })
 
-var voice = dropDown.value;
+
 
 userinput.addEventListener('click', function(event) {
     event.preventDefault();
 
-    if(dropDown.selectedIndex == 1) {
-        voice = 'US English Male'
-    } else if(dropDown.selectedIndex == 2) {
-        voice = 'UK English Female'
-    } else if(dropDown.selectedIndex == 3) {
-        voice = 'UK English Male'
-    } else if(dropDown.selectedIndex == 4) {
-        voice = 'French Female'
-    } else if(dropDown.selectedIndex == 5) {
-        voice = 'Russian Male'
-    } else if(dropDown.selectedIndex == 6) {
-        voice = 'Spanish Female'
-    } else if(dropDown.selectedIndex == 0) {
-        voice = 'US English Female'
-    }
-
-    alert(dropDown.selectedOptions[dropDown.selectedIndex].value);
+    voice = dropDown.value;
+    console.log(voice);
+    
 })
 
 
