@@ -37,7 +37,7 @@ Welcome to the Quote-to-Speech App! This application allows you to convert text 
 
 ## Deployment
 
-The Text-to-Speech App is deployed and accessible at [link to deployed application].
+The Text-to-Speech App is deployed and accessible [here](https://kzb11128.github.io/quote-and-speech/).
 
 ## License
 
