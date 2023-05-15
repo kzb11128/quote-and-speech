@@ -13,8 +13,14 @@
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
     />
-    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-    <title>Quote & Speech</title>
+
+    <link rel="stylesheet" href="./assets/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.min.js"></script>
+
+
+
 </head>
 
 <body>
@@ -24,11 +30,25 @@
 <!-- header div CSS-->
 <div class="text-4xl font-bold my-5 mx-5">
     <header>
-        <h1 id="title">
+
+        <h1 id="title" class="text-4xl font-bold flex justify-center">
             Quote <span class="text-white">&</span> Speech
-        </h1>
+          </h1>
+        <h2>Listen, Learn, and Be Inspired: Text-to-Speech with Daily Quotes</h2>  
     </header>
+    <main id="main-container">
+        <textarea name="textInput" id="textInput" placeholder="#" cols="30" rows="10" required="required" class=" max-w-[600px] block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 mt-6 justify-center" ></textarea>
+        <section id="buttons" class="flex flex-wrap justify-center space-x-4">
+            <button id="play" class="btns bg-gray-300 hover:bg-green-500 text-gray-800  mt-3 font-bold py-2 px-4 rounded">
+                <i class="fas fa-play"></i>
+            </button>
+
+        
+            
+        
+    
 </div>
+
 
 <!-- Main container for quote textarea and page buttons -->
 
@@ -38,6 +58,12 @@
     <textarea name="textInput" id="textInput" placeholder="#" cols="30" rows="10" required="required" class="resize-none rounded-md block p-2.5 w-9/12 h-64 text-sm md:text-base text-gray-900 bg-white rounded-lg border border-gray-300 shadow-md shadow-[#542745]/40 focus:ring-blue-500 focus:border-blue-500 mt-6"></textarea>
     <label for="textinput" class="text-sm font-semibold mt-3">Refresh the page for a new quote</label>
     
+
+            
+        
+        
+    
+
  <!-- Buttons section to play the voice, save the quote, and clear the session -->
     <section id="buttons" class="flex flex-wrap justify-center text-sm md:text-base my-4 space-x-4">
 <!-- Play button -->
