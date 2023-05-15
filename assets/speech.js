@@ -63,3 +63,6 @@ tippy('#userInput', {
 tippy('#saveQuote', {
     content: 'Save the quote if you like it',
   }); 
+  tippy('#clearQuotes', {
+    content: 'Clears out all saved quotes',
+  });
