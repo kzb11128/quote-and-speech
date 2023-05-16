@@ -10,6 +10,7 @@ function getQuote(){
 
 // api key
   let apiKey = 'uKUGstC3MMp19buzHc8PrltP0BIiwoF4hVw0beNh';
+  let category = 'inspirational';
 
 // uses data from api call
   function useData(data){
@@ -20,7 +21,7 @@ function getQuote(){
 // gets data from api
   $.ajax({
     method: 'GET',
-    url: 'https://api.api-ninjas.com/v1/quotes?category',
+    url: 'https://api.api-ninjas.com/v1/quotes?category=' + category,
     headers: { 'X-Api-Key': apiKey},
     contentType: 'application/json',
     success: function(result) {
