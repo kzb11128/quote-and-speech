@@ -65,13 +65,6 @@ var newBgColor = quotesBgColors[Math.floor(Math.random()*44)];
 let textBgColor = newBgColor + " max-h-64 w-fit text-sm 2xl:text-base text-gray-900 rounded-md shadow-md shadow-[#542745]/40 border border-gray-300 m-2.5 p-2.5 overflow-y-auto";
 quoteList.setAttribute("class", textBgColor);
 
-// Button attributes
-var copyBtn = document.createElement('button');
-var copyImg = document.createElement('i');
-copyImg.setAttribute('class', 'fas fa-copy')
-copyBtn.setAttribute('class', 'btns');
-copyBtn.appendChild(copyImg);
-
 // set the quote as the text content of the new div element
 quoteList.textContent = quote; 
 
@@ -80,10 +73,7 @@ savedQuotesList.appendChild(quoteList);
 
 // Save the updated saved quotes to localStorage
 localStorage.setItem('mySavedQuotes', savedQuotesList.innerHTML);
-quoteList.appendChild(copyBtn);
-copyBtn.addEventListener("click", () => {
-navigator.clipboard.writeText(quoteList.textContent);
-});
+
 });
 
 // Button to clear local storage and saved quotes section on the webpage
@@ -96,8 +86,9 @@ quotesText.removeChild(quotesText.firstChild);
 localStorage.clear();
 });
 
-var useQuote = document.querySelector("#useQuote");
+var copyQuote = document.querySelector("#copyQuote");
 
-useQuote.addEventListener('click', function() {
+copyQuote.addEventListener('click', function() {
   textareaEL.value = textareaEL.placeholder;
+  navigator.clipboard.writeText(textareaEL.value);
 });
