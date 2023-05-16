@@ -96,3 +96,8 @@ quotesText.removeChild(quotesText.firstChild);
 localStorage.clear();
 });
 
+var useQuote = document.querySelector("#useQuote");
+
+useQuote.addEventListener('click', function() {
+  textareaEL.value = textareaEL.placeholder;
+});
