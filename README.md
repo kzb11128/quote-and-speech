@@ -33,7 +33,7 @@ Welcome to the Quote-to-Speech App! This application allows you to convert text 
 
 ## Screenshots
 
-![App Screenshot](./assets/images/website-preview.jpg)
+![App Screenshot](./assets/images/website-preview-screenshot.png)
 
 ## Deployment
 
