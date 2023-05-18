@@ -44,48 +44,125 @@ function useData(data){
   textareaEl.placeholder = text;
 }
 
-// RUNS GET QUOTE FUNCTION
+
+
+// creates and adds quote element to quote list
+function appendQuoteList(quote){
+
+
+  let savedQuotesList = document.querySelector("#savedQuotes-container");
+  let quoteList = document.createElement('div');
+  let copyBtn = document.createElement('button');
+  let copyImg = document.createElement('i');
+  let delBtn = document.createElement('button');
+  let delImg = document.createElement('i');
+
+  // Colors for background of quote containers
+  let quotesBgColors = ["bg-slate-50", "bg-slate-100", "bg-gray-50", "bg-gray-100", "bg-zinc-50", "bg-zinc-100", "bg-neutral-50", "bg-neutral-100", "bg-stone-50", "bg-stone-100",
+  "bg-red-50", "bg-red-100", "bg-orange-50", "bg-orange-100", "bg-amber-50", "bg-amber-100", "bg-yellow-50", "bg-yellow-100", "bg-lime-50", "bg-lime-100",
+  "bg-green-50", "bg-green-100", "bg-emerald-50", "bg-emerald-100", "bg-teal-50", "bg-teal-100", "bg-cyan-50", "bg-cyan-100", "bg-sky-50", "bg-sky-100",
+  "bg-blue-50", "bg-blue-100", "bg-indigo-50", "bg-indigo-100", "bg-violet-50", "bg-violet-100", "bg-purple-50", "bg-purple-100", "bg-fuchsia-50",
+  "bg-fuchsia-100", "bg-pink-50", "bg-pink-100", "bg-rose-50", "bg-rose-100"];
+
+  // Assign attributes to the quote containers
+  var newBgColor = quotesBgColors[Math.floor(Math.random()*44)];
+  let textBgColor = newBgColor + " max-h-64 w-fit text-sm 2xl:text-base text-gray-900 rounded-md shadow-md shadow-[#542745]/40 border border-gray-300 m-2.5 p-2.5 overflow-y-auto";
+  quoteList.setAttribute("class", textBgColor);
+
+  // set the quote as the text content of the new div element
+  quoteList.textContent = quote; 
+
+
+
+  // Copy button for quotes
+  copyImg.setAttribute('class', 'fas fa-copy');
+  copyBtn.setAttribute('class', 'btns');
+  copyBtn.appendChild(copyImg);
+
+
+  // Delete button for quotes
+  delImg.setAttribute('class', 'fas fa-trash');
+  delBtn.setAttribute('class', 'btns m-2');
+  delBtn.appendChild(delImg);
+
+
+  // set the quote as the text content of the new li element and adds buttons
+  quoteList.textContent = quote;
+  quoteList.appendChild(copyBtn);
+  quoteList.appendChild(delBtn);
+  savedQuotesList.appendChild(quoteList);
+
+
+
+
+
+  copyBtn.addEventListener("click", () => {
+      navigator.clipboard.writeText(quoteList.textContent);
+
+
+      console.log('copied quote')
+    });
+
+
+
+
+  // WHEN I HIT DELETE THE ARRAY IN LOCAL STORAGE BECOMES A NUMBER
+  delBtn.addEventListener('click', (event) => {
+      console.log('delete quote');
+      event.target.parentNode.parentNode.remove()
+     
+      // Resets array and adds each quote left on page to the array
+      let savedQuotes = [];
+
+
+      savedQuotesList.childNodes.forEach(e => { 
+          if (e.innerText !== undefined){
+              savedQuotes.push(e.innerText)
+          }});
+         
+      // SAVES TO LOCAL STORAGE
+      localStorage.setItem('mySavedQuotes', JSON.stringify(savedQuotes));
+
+
+  });
+}
+
+
+
+
 
 
 
 function main(){
   // Save quote functionality
-  var saveQuoteBtn = document.querySelector("#saveQuote");
-
-  // var savedQuotesSection = document.querySelector("#savedQuotes-container");
-
-  var savedQuotesList = document.querySelector("#savedQuotes-container")
+  let quote = textareaEl.getAttribute('placeholder');
+  let saveQuoteBtn = document.querySelector("#saveQuote");
 
   // Retrieve the saved quotes from localStorage
-  var savedQuotes = localStorage.getItem('mySavedQuotes');
-  if (savedQuotes) {
-      savedQuotesList.innerHTML = savedQuotes;
+
+  let savedQuotes = [];
+  if (localStorage.getItem('mySavedQuotes')){
+     // GETS FROM LOCAL STORAGE
+     savedQuotes = JSON.parse(localStorage.getItem('mySavedQuotes'));
   }
-
-  // Save quotes to the quotes section
+  
+  
+  // Adds each quote in storage to page using appendQuoteList()
+  if (savedQuotes !== undefined) {
+     for (let i = 0; i < savedQuotes.length; i++){
+         appendQuoteList(savedQuotes[i]);
+     }
+  }
+  
+// ADDS QUOTE TO LIST
   saveQuoteBtn.addEventListener('click', function(){
-    var quote = textareaEL.getAttribute('placeholder');
-    var quoteList = document.createElement('div');
-  // Colors for background of quote containers
-    let quotesBgColors = ["bg-slate-50", "bg-slate-100", "bg-gray-50", "bg-gray-100", "bg-zinc-50", "bg-zinc-100", "bg-neutral-50", "bg-neutral-100", "bg-stone-50", "bg-stone-100",
-                              "bg-red-50", "bg-red-100", "bg-orange-50", "bg-orange-100", "bg-amber-50", "bg-amber-100", "bg-yellow-50", "bg-yellow-100", "bg-lime-50", "bg-lime-100",
-                              "bg-green-50", "bg-green-100", "bg-emerald-50", "bg-emerald-100", "bg-teal-50", "bg-teal-100", "bg-cyan-50", "bg-cyan-100", "bg-sky-50", "bg-sky-100",
-                              "bg-blue-50", "bg-blue-100", "bg-indigo-50", "bg-indigo-100", "bg-violet-50", "bg-violet-100", "bg-purple-50", "bg-purple-100", "bg-fuchsia-50",
-                              "bg-fuchsia-100", "bg-pink-50", "bg-pink-100", "bg-rose-50", "bg-rose-100"];
+    appendQuoteList(quote);
+    //append to local storage
+    console.log(savedQuotes)
+    savedQuotes.push(quote);
 
-  // Assign attributes to the quote containers
-    var newBgColor = quotesBgColors[Math.floor(Math.random()*44)];
-    let textBgColor = newBgColor + " max-h-64 w-fit text-sm 2xl:text-base text-gray-900 rounded-md shadow-md shadow-[#542745]/40 border border-gray-300 m-2.5 p-2.5 overflow-y-auto";
-    quoteList.setAttribute("class", textBgColor);
-
-  // set the quote as the text content of the new div element
-    quoteList.textContent = quote; 
-
-  // append the new div element to the saved quotes section
-    savedQuotesList.appendChild(quoteList); 
-
-  // Save the updated saved quotes to localStorage
-    localStorage.setItem('mySavedQuotes', savedQuotesList.innerHTML);
+    // SETS LOCAL STORAGE
+    localStorage.setItem('mySavedQuotes', JSON.stringify(savedQuotes));
 
   });
 
