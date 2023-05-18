@@ -18,7 +18,7 @@ Welcome to the Quote-to-Speech App! This application allows you to convert text 
 - Tailwind CSS
 - JavaScript
 - [ResponsiveVoice](https://responsivevoice.org/api/)
-- [Quotel-Quotes](https://rapidapi.com/skjaldbaka17/api/quotel-quotes/)
+- [Quotes API from API Ninjas](https://api-ninjas.com/api/quotes)
 
 ## Usage
 
